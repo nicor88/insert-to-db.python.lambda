@@ -1,5 +1,5 @@
 # insert-to-db.python.lambda
-Generic AWS lambda to insert an event in a Database
+Generic AWS lambda to insert an event to a Postgres Database (for now)
 
 ## Conda env for local development
 <pre>
@@ -14,3 +14,5 @@ pip install -r requirements.txt
 
 ## Run tests
 `py.test -vv -r sxX`
+or
+`make run_tests` (it only works if you have a conda env called `insert-into-db-lambda`)

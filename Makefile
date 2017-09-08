@@ -18,3 +18,6 @@ zip: build_dist
 clean:
 	rm -rf build
 	rm -rf dist
+
+run_tests:
+	source activate insert-into-db-lambda && py.test -vv -r sxX
