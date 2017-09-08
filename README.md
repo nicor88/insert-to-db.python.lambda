@@ -3,9 +3,10 @@
 # insert-to-db.python.lambda
 Generic AWS lambda to insert an event to a Postgres Database (for now)
 
-## Conda env for local development
-<pre>
-conda create --name insert-into-db-lambda python=3.6
+## Local development
+It's possible to use VIRTUALENV or create a conda environment
+
+<pre>conda create --name insert-into-db-lambda python=3.6
 source activate insert-into-db-lambda
 </pre>
 
