@@ -1,4 +1,8 @@
 import os
+import sys
+
+sys.path.extend([os.getcwd()])
+print(sys.path)
 
 import pytest
 
