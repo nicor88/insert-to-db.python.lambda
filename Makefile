@@ -20,4 +20,4 @@ clean:
 	rm -rf dist
 
 run_tests:
-	source activate insert-into-db-lambda && py.test -vv -r sxX
+	bash run_tests_locally.sh
