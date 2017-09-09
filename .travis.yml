@@ -1,0 +1,37 @@
+language: python
+
+python: '3.6'
+sudo: false
+
+env:
+  global:
+    - AWS_DEFAULT_REGION=eu-west-1
+
+install:
+  - pip install pytest
+  - pip install -r requirements.txt
+
+script:
+  # run tests
+  - py.test -vv -r sxX
+
+before_deploy:
+  - make
+  - mv dist/lambda.zip dist/latest.zip
+  - cp dist/latest.zip dist/$TRAVIS_COMMIT.zip
+
+deploy:
+  provider:          s3
+  access_key_id:     $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket:            $AWS_BUCKET
+  region:            $AWS_BUCKET_REGION
+  local_dir:         dist
+  upload-dir:        deployments/lambdas/travis_build/insert_into_db
+  acl:               private
+  skip_cleanup:      true
+  on:
+    all_branches: true
+
+notifications:
+  email: true
