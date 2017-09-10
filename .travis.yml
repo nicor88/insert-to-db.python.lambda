@@ -6,6 +6,7 @@ sudo: false
 env:
   global:
     - AWS_DEFAULT_REGION=eu-west-1
+    - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
 
 install:
   - pip install pytest
